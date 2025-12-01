@@ -16,7 +16,7 @@ for i in range(len(participantes)):
         destinatarios[i], destinatarios[j] = destinatarios[j], destinatarios[i]
 
 # Paso 2: Función de cifrado simple (Cifrado César)
-def cifrar(texto, desplazamiento=5):
+def cifrar(texto, desplazamiento=7):
     resultado = ""
     for char in texto.upper():
         if char in string.ascii_uppercase:

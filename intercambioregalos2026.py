@@ -2,7 +2,7 @@ import random
 import string
 
 # Lista de participantes
-participantes = ["Emma","Rolando", "Daniel", "Bere", "Martin"]
+participantes = ["EmmaSaHe","Rolaando", "Daaniiel", "Berenice", "Maartiin"]
 
 # Paso 1: Crear una lista mezclada de destinatarios
 destinatarios = participantes.copy()
@@ -33,7 +33,7 @@ rifa = {}
 for i in range(len(participantes)):
     giver = participantes[i]
     receiver = destinatarios[i]
-    codigo = cifrar(receiver, desplazamiento=5)  # cada nombre cifrado
+    codigo = cifrar(receiver, desplazamiento=7)  # cada nombre cifrado
     rifa[giver] = codigo
 
 # Mostrar resultados (solo códigos)

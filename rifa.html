@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Rifa de Regalos</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+    input { padding: 8px; margin: 10px; }
+    button { padding: 8px 15px; }
+    #resultado { margin-top: 20px; font-size: 1.2em; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>🎁 Intercambio de Regalos</h1>
+  <p>Introduce tu código para saber a quién debes dar regalo:</p>
+  
+  <input type="text" id="codigo" placeholder="Escribe tu código aquí">
+  <button onclick="decodificar()">Descifrar</button>
+  
+  <div id="resultado"></div>
+  
+  <script>
+    // Función de descifrado César
+    function descifrar(texto, desplazamiento=5) {
+      let resultado = "";
+      texto = texto.toUpperCase();
+      for (let char of texto) {
+        if (char >= 'A' && char <= 'Z') {
+          let code = (char.charCodeAt(0) - 65 - desplazamiento + 26) % 26 + 65;
+          resultado += String.fromCharCode(code);
+        } else {
+          resultado += char;
+        }
+      }
+      return resultado;
+    }
+
+    function decodificar() {
+      const codigo = document.getElementById("codigo").value.trim();
+      if (codigo === "") {
+        document.getElementById("resultado").innerText = "Por favor ingresa un código.";
+        return;
+      }
+      const nombre = descifrar(codigo, 5); // mismo desplazamiento que usaste en Python
+      document.getElementById("resultado").innerText = "Te toca regalar a: " + nombre;
+    }
+  </script>
+</body>
+</html>
